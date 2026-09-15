@@ -1,4 +1,47 @@
-Welcome to Protter — the open-source tool for interactive integration and visualization of annotated and predicted protein sequence features together with experimental proteomic evidence!
+### Linux Compatibility
+
+1. Clone the repo 
+
+```bash
+git clone https://github.com/ClupTheGreat/Protter-linux.git
+```
+
+2. Download MiKTeX from https://miktex.org/download or run the following commands
+
+```bash
+curl -fsSL https://miktex.org/download/key | sudo gpg --dearmor -o /usr/share/keyrings/miktex.gpg
+echo "deb [signed-by=/usr/share/keyrings/miktex.gpg] https://miktex.org/download/ubuntu jammy universe" | sudo tee /etc/apt/sources.list.d/miktex.list
+sudo apt-get update
+sudo apt-get install miktex
+miktexsetup finish
+```
+
+3. Make sure port 8081 isnt being used, or use another port by setting the port variable to your desired port in protter.config
+
+4. Run this command
+
+```bash
+java --add-opens=java.base/java.lang=ALL-UNNAMED -jar protterServer.jar
+```
+
+### Using Docker (Recommended)
+
+1. Build the docker image
+
+```bash
+cd Protter-linux
+docker build -t protter .
+```
+2. Create and run a docker container with the protter image.
+
+```bash
+docker run -d -p 8081:8081 protter
+```
+
+***
+
+
+Welcome to Protter ï¿½ the open-source tool for interactive integration and visualization of annotated and predicted protein sequence features together with experimental proteomic evidence!
 
 ### Version 1.0 released!
 The code for the final version 1.0 has just been released, check it out at GitHub (https://github.com/ulo/Protter).
