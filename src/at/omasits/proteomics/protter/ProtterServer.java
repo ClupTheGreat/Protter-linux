@@ -45,7 +45,7 @@ public class ProtterServer extends FileServer {
 	public static File dvisvgm;
 
 	public ProtterServer(int port) throws IOException {
-		super("127.0.0.1", port, wwwRoot, proxyPrefix);
+		super("0.0.0.0", port, wwwRoot, proxyPrefix);
 		MIME_TYPES.put("svg", "image/svg+xml");
 		MIME_TYPES.put("svgz", "image/svg+xml");
 	}

@@ -1,0 +1,66 @@
+Manifest-Version: 1.0
+Main-Class: at.omasits.proteomics.protter.ProtterServer
+Class-Path: . protterServer_lib/javax.mail-1.5.0.jar protterServer_lib/l
+ og4j-1.2-api-2.19.0.jar protterServer_lib/log4j-api-2.19.0.jar protterS
+ erver_lib/log4j-core-2.19.0.jar protterServer_lib/batik-anim.jar protte
+ rServer_lib/batik-awt-util.jar protterServer_lib/batik-bridge.jar prott
+ erServer_lib/batik-codec.jar protterServer_lib/batik-css.jar protterSer
+ ver_lib/batik-dom.jar protterServer_lib/batik-ext.jar protterServer_lib
+ /batik-gvt.jar protterServer_lib/batik-parser.jar protterServer_lib/bat
+ ik-script.jar protterServer_lib/batik-svg-dom.jar protterServer_lib/bat
+ ik-svggen.jar protterServer_lib/batik-transcoder.jar protterServer_lib/
+ batik-util.jar protterServer_lib/batik-xml.jar protterServer_lib/pdfbox
+ -1.8.0.jar protterServer_lib/pdf-transcoder.jar protterServer_lib/xml-a
+ pis-ext.jar protterServer_lib/activation-1.1.jar protterServer_lib/anim
+ al-sniffer-annotations-1.14.jar protterServer_lib/antlr4-4.5.3.jar prot
+ terServer_lib/aopalliance-1.0.jar protterServer_lib/aopalliance-repacka
+ ged-2.6.1.jar protterServer_lib/avro-1.7.6.jar protterServer_lib/avro-i
+ pc-1.7.6.jar protterServer_lib/axis2-1.6.2.jar protterServer_lib/checke
+ r-compat-qual-2.0.0.jar protterServer_lib/classmate-0.8.0.jar protterSe
+ rver_lib/commons-beanutils-1.9.2.jar protterServer_lib/commons-collecti
+ ons-3.2.1.jar protterServer_lib/commons-compress-1.12.jar protterServer
+ _lib/commons-io-2.4.jar protterServer_lib/commons-lang-2.6.jar protterS
+ erver_lib/commons-lang3-3.6.jar protterServer_lib/commons-logging-1.2.j
+ ar protterServer_lib/commons-math3-3.6.1.jar protterServer_lib/commons-
+ net-3.6.jar protterServer_lib/error_prone_annotations-2.1.3.jar protter
+ Server_lib/failsafe-1.0.3.jar protterServer_lib/FastInfoset-1.2.13.jar 
+ protterServer_lib/guava-24.1.1-jre.jar protterServer_lib/guice-4.0.jar 
+ protterServer_lib/guice-multibindings-4.0.jar protterServer_lib/hiberna
+ te-validator-5.0.1.Final.jar protterServer_lib/hk2-api-2.6.1.jar protte
+ rServer_lib/hk2-locator-2.6.1.jar protterServer_lib/hk2-utils-2.6.1.jar
+  protterServer_lib/httpclient-4.5.3.jar protterServer_lib/httpcore-4.4.
+ 6.jar protterServer_lib/httpmime-4.5.3.jar protterServer_lib/istack-com
+ mons-runtime-3.0.5.jar protterServer_lib/j2objc-annotations-1.1.jar pro
+ tterServer_lib/jackson-annotations-2.9.5.jar protterServer_lib/jackson-
+ core-2.9.5.jar protterServer_lib/jackson-core-asl-1.9.13.jar protterSer
+ ver_lib/jackson-databind-2.9.4.jar protterServer_lib/jackson-mapper-asl
+ -1.9.13.jar protterServer_lib/jakarta.annotation-api-1.3.5.jar protterS
+ erver_lib/jakarta.inject-2.6.1.jar protterServer_lib/jakarta.validation
+ -api-2.0.2.jar protterServer_lib/jakarta.ws.rs-api-2.1.6.jar protterSer
+ ver_lib/javaparser-1.0.11.jar protterServer_lib/javassist-3.22.0-CR2.ja
+ r protterServer_lib/javax.inject-1.jar protterServer_lib/javax.mail-1.6
+ .1.jar protterServer_lib/javax.mail-api-1.6.1.jar protterServer_lib/jax
+ b2-basics-1.11.1.jar protterServer_lib/jaxb2-basics-runtime-1.11.1.jar 
+ protterServer_lib/jaxb2-basics-tools-1.11.1.jar protterServer_lib/jaxb-
+ api-2.3.0.jar protterServer_lib/txw2-2.3.0.jar protterServer_lib/jaxb-c
+ ore-2.3.0.jar protterServer_lib/jaxb-impl-2.3.0.jar protterServer_lib/s
+ tax-ex-1.7.8.jar protterServer_lib/jaxb-runtime-2.3.0.jar protterServer
+ _lib/jboss-logging-3.1.1.GA.jar protterServer_lib/jcl-over-slf4j-1.7.7.
+ jar protterServer_lib/jcommander-1.32.jar protterServer_lib/jersey-clie
+ nt-2.29.1.jar protterServer_lib/jersey-common-2.29.1.jar protterServer_
+ lib/jersey-container-servlet-2.29.1.jar protterServer_lib/jersey-contai
+ ner-servlet-core-2.29.1.jar protterServer_lib/jersey-hk2-2.29.1.jar pro
+ tterServer_lib/jersey-media-jaxb-2.29.1.jar protterServer_lib/jersey-se
+ rver-2.29.1.jar protterServer_lib/jetty-6.1.26.jar protterServer_lib/je
+ tty-util-6.1.26.jar protterServer_lib/jsr305-1.3.9.jar protterServer_li
+ b/logback-classic-1.2.3.jar protterServer_lib/logback-core-1.2.3.jar pr
+ otterServer_lib/metrics-core-3.2.2.jar protterServer_lib/netty-3.4.0.Fi
+ nal.jar protterServer_lib/noggit-0.8.jar protterServer_lib/osgi-resourc
+ e-locator-1.0.3.jar protterServer_lib/paranamer-2.3.jar protterServer_l
+ ib/servlet-api-2.5-20081211.jar protterServer_lib/slf4j-api-1.7.25.jar 
+ protterServer_lib/snappy-java-1.0.5.jar protterServer_lib/solr-solrj-7.
+ 2.0.jar protterServer_lib/stax2-api-3.1.4.jar protterServer_lib/validat
+ ion-api-1.1.0.Final.jar protterServer_lib/velocity-1.7.jar protterServe
+ r_lib/woodstox-core-asl-4.4.1.jar protterServer_lib/zookeeper-3.4.10.ja
+ r protterServer_lib/japi-1.1.2.jar
+
