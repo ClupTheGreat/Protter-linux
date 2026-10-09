@@ -12,6 +12,7 @@ import uk.ac.ebi.kraken.interfaces.uniprot.features.CarbohydFeature;
 import uk.ac.ebi.kraken.interfaces.uniprot.features.Feature;
 import uk.ac.ebi.kraken.interfaces.uniprot.features.FeatureType;
 import uk.ac.ebi.kraken.interfaces.uniprot.features.TransmemFeature;
+import uk.ac.ebi.kraken.interfaces.uniprot.features.TopoDomFeature;
 
 public class RangeParserUniProt implements IRangeParser {
 
@@ -35,7 +36,18 @@ public class RangeParserUniProt implements IRangeParser {
 			for (Feature f : upEntry.getFeatures(FeatureType.valueOf(upFeature))) {
 				if (f.getFeatureLocation().getStart()==-1 || f.getFeatureLocation().getEnd()==-1)
 					continue;
-				if (upFeature.equals("CARBOHYD") && upSubFeature != null) {
+				if (upFeature.equals("TOPO_DOM") && upSubFeature!=null) {
+					String description =
+						((TopoDomFeature) f).getFeatureDescription().getValue();
+					System.out.println("TOPO_DOM DESCRIPTION=["+description+"]");
+					System.out.println("TOPO_DOM SUBFEATURE = ["+upSubFeature+"]");
+					if (description !=null && description.toLowerCase().startsWith(upSubFeature.toLowerCase())) {
+						ranges.add(new Range(
+							f.getFeatureLocation().getStart(),
+							f.getFeatureLocation().getEnd()
+						));
+					}
+				} else if (upFeature.equals("CARBOHYD") && upSubFeature != null) {
 					String linkTyp = "";
 					String description = ((CarbohydFeature)f).getFeatureDescription().getValue();
 					if (description.toLowerCase().startsWith("n-linked")) {
