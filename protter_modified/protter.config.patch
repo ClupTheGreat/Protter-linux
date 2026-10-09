@@ -1,0 +1,11 @@
+# Change the default batch limit from 100 to 600.
+maxBatchSize = 600
+
+# Optional persistent output directory for batch results.
+# IMPORTANT: when Protter runs in Docker, this must be a path INSIDE the
+# container that is bind-mounted to the host. Leave empty to retain the
+# original temporary-file cleanup behavior.
+# Example in Docker: -v /absolute/host/path:/protter-output
+# Then use:
+# batchOutputDir = /protter-output
+batchOutputDir = /protter-output
