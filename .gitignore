@@ -1,0 +1,11 @@
+build/
+        image.svg
+        image2.svg
+        protter-output/
+        protterServer.jar.backup
+        protterServer.jar.backup_before_batchfix
+        protterServer.jar.original
+        protter_modified/
+        src.backup_20260929_160815/
+        src/at/omasits/proteomics/protter/Prot.java.bak
+        src/at/omasits/proteomics/protter/ProtProvider.java.bak

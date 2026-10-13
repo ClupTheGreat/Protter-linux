@@ -1,34 +1,62 @@
 package at.omasits.proteomics.protter;
 
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.BufferedReader;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.BufferedWriter;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.File;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.FileReader;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.FileWriter;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.IOException;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.io.InputStreamReader;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.ArrayList;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.Collections;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.LinkedHashMap;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.List;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.Map;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.regex.Matcher;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import java.util.regex.Pattern;
 
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import com.google.common.base.Joiner;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import com.google.common.base.Splitter;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import com.google.common.collect.Lists;
 
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.proteomics.protter.Style.Color;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.proteomics.protter.Style.Shape;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.proteomics.protter.phobius.PhobiusProvider;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.proteomics.protter.ranges.Range;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.proteomics.protter.uniprot.UniProtProvider;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.proteomics.protter.uniprot.UniProtProvider.UniprotException;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.util.Config;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.util.Log;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.util.UOUniProtEntry;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.util.Util;
+import uk.ac.ebi.kraken.interfaces.uniprot.description.FieldType;
 import at.omasits.util.Vec;
 
 public class Prot {
@@ -255,6 +283,22 @@ public class Prot {
 		this.lblNumbers = parms.containsKey("numbers");
 		this.showLegend = parms.containsKey("legend");
 		this.lblTitle = parms.get("title");
+		// When UniProt is used and no explicit title was supplied, put the
+		// UniProt recommended protein name on the generated plot automatically.
+		if (this.lblTitle == null && up.size() > 0) {
+			try {
+				if (up.get(0).getProteinDescription() != null
+						&& up.get(0).getProteinDescription().hasRecommendedName()
+						&& up.get(0).getProteinDescription().getRecommendedName() != null
+						&& up.get(0).getProteinDescription().getRecommendedName().getFieldsByType(FieldType.FULL).size() > 0) {
+					String proteinName = up.get(0).getProteinDescription().getRecommendedName().getFieldsByType(FieldType.FULL).get(0).getValue();
+					if (proteinName != null && proteinName.trim().length() > 0)
+						this.lblTitle = proteinName.trim();
+				}
+			} catch (Exception e) {
+				Log.warn("Could not determine UniProt protein name for plot title: " + e.getMessage());
+			}
+		}
 		if (parms.containsKey("tex")) {
 			this.arrTextopo = Lists.newArrayList(Splitter.on(';').split(parms.get("tex")));	
 		}

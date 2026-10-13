@@ -198,6 +198,39 @@ public class ProtterServer extends FileServer {
 					try {
 						Log.info(socket.getInetAddress().getHostAddress()+" "+socket.getInetAddress().getCanonicalHostName() + " creating and serving protter file ("+parms+")");
 						ProtFile f = ProtProvider.getFile(parms);
+
+						// Persist every /create result
+						String outputDirPath = Config.get("batchOutputDir", "").trim();
+						if (outputDirPath.length() > 0) {
+						    File outputDir = new File(outputDirPath);
+						    if (!outputDir.exists() && !outputDir.mkdirs())
+						        throw new Exception("Could not create output directory: " + outputDirPath);
+						    if (!outputDir.isDirectory())
+						        throw new Exception("Output path is not a directory: " + outputDirPath);
+
+						    String inputId = parms.get("up");
+String baseName = f.fileName;
+
+int dot = baseName.lastIndexOf('.');
+String extension = "";
+if (dot > 0) {
+    extension = baseName.substring(dot);
+    baseName = baseName.substring(0, dot);
+}
+
+String safeInputId = inputId == null ? "unknown" :
+        inputId.replaceAll("[^A-Za-z0-9._-]", "_");
+
+String outputName = baseName + "_" + safeInputId + extension;
+
+File destination = new File(outputDir, outputName);
+						    java.nio.file.Files.copy(
+						        new File(f.getPath()).toPath(),
+						        destination.toPath(),
+						        java.nio.file.StandardCopyOption.REPLACE_EXISTING
+						    );
+						    Log.info("saved /create result: " + destination.getPath());
+						}
 						res = serveFile(f.getPath(), header, new File("."), f.fileName);
 					} catch (Exception e) {
 						e.printStackTrace();

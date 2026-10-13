@@ -1,0 +1,26 @@
+--- src/at/omasits/proteomics/protter/Prot.java.orig
++++ src/at/omasits/proteomics/protter/Prot.java
+@@ -249,7 +249,20 @@
+ 		this.tmLabel = parms.containsKey("tml") ? TMlabel.fromString(parms.get("tml")) : TMlabel.numcount;
+ 		this.lblNumbers = parms.containsKey("numbers");
+ 		this.showLegend = parms.containsKey("legend");
+ 		this.lblTitle = parms.get("title");
++		// When UniProt is used and no explicit title was supplied, put the
++		// UniProt recommended protein name on the generated plot automatically.
++		if (this.lblTitle == null && up.size() > 0) {
++			try {
++				if (up.get(0).getProteinDescription() != null
++						&& up.get(0).getProteinDescription().hasRecommendedName()
++						&& up.get(0).getProteinDescription().getRecommendedName() != null
++						&& up.get(0).getProteinDescription().getRecommendedName().getFullName() != null) {
++					String proteinName = up.get(0).getProteinDescription().getRecommendedName().getFullName().getValue();
++					if (proteinName != null && proteinName.trim().length() > 0)
++						this.lblTitle = proteinName.trim();
++				}
++			} catch (Exception e) {
++				Log.warn("Could not determine UniProt protein name for plot title: " + e.getMessage());
++			}
++		}
+ 		if (parms.containsKey("tex")) {
+ 			this.arrTextopo = Lists.newArrayList(Splitter.on(';').split(parms.get("tex")));
+ 		}
