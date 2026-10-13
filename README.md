@@ -38,6 +38,11 @@ docker build -t protter .
 docker run -d -p 8081:8081 protter
 ```
 
+### Updated the repo for
+1. Styling changes, to include TOPO_DOM(Extracellular vs Cytoplasmic).
+2. Save results directly to a local directory.
+3. Increased batch processing limit from 100 to 600.
+
 ***
 
 
